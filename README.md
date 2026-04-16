@@ -55,7 +55,7 @@ To maintain the security objective, I pivoted to a manual JIT simulation using t
 ![JIT](simulate%20JIT%20acess.png)
 ![JIT](Grant%20of%20JIT%20successfull.png)
 ![JIT](Revoke%20grant%20of%20JIT.png)
-![JIT](Grant%20successfully%20revoked.png)
+![JIT](Grant%20successfully%20rekoved.png)
 Running `get-iam-policy` to confirm that 'run.admin' privileges were successfully revoked, returning an empty result.*
 
 ---
