@@ -37,25 +37,25 @@ Due to the platform constraint (standalone project vs. organization node), I piv
 
 ### 1. Application Lockdown (IAP)
 To prevent unauthorized access, I deployed a Cloud Run service and restricted ingress to "Internal + Load Balancing" only. I then activated Identity-Aware Proxy to act as a gatekeeper.
-[IAP](Creation%20of%20new520IAM%20policy.png)
-[IAP](Removing%20public%20access%20to%20created%20link.png)
-[IAP](Public%20access520removed%20from%20URL.png)
-[IAP](Principle%20and%20condition%20added.png)
-[IAP](Turning%20on%20IAP%20for%20the%20URL.png)
+![IAP](Creation%20of%20new%20IAM%20policy.png)
+![IAP](Removing%20public%20access%20to%20created%20link.png)
+![IAP](Public%20access%20removed%20from%20URL.png)
+![IAP](Principle%20and%20condition%20added.png)
+![IAP](Turning%20on%20IAP%20for%20the%20URL.png)
 Showing the IAP dashboard with the Cloud Run service toggled 'On' and the specific user permissions assigned.*
 
 ### 2. The PAM Configuration Challenge
 I attempted to implement Privileged Access Manager (PAM) for automated elevation. This involved deep-level debugging of YAML configurations to satisfy the GCP Beta API requirements. During the implementation, I identified a critical platform constraint: PAM requires the project to be part of a Google Cloud Organization. 
-[PAM](Creating%20entitlement%20with%20PAM%201.png)
-[PAM](platform%20analysis%20constrain.png)
+![PAM](Creating%20entitlement%20with%20PAM%201.png)
+![PAM](platform%20constraint%20analysis.png)
 Navigating and resolving 'Invalid Argument' errors during the YAML-based entitlement creation. The specific error message identifying that PAM requires an Organization node—a key finding for infrastructure planning.
 
 ### 3. JIT Simulation & Verification
 To maintain the security objective, I pivoted to a manual JIT simulation using the `gcloud` CLI. I successfully elevated my account to `Cloud Run Admin` and then verified the removal of access.
-[JIT](simulate%20JIT%20access.png)
-[JIT](Grant%20of%20JIT%20successfull.png)
-[JIT](Revoke%20grant%20of%20JIT.png)
-[JIT](Grant%20successfully%20revoked.png)
+![JIT](simulate%20JIT%20access.png)
+![JIT](Grant%20of%20JIT%20successfull.png)
+![JIT](Revoke%20grant%20of%20JIT.png)
+![JIT](Grant%20successfully%20revoked.png)
 Running `get-iam-policy` to confirm that 'run.admin' privileges were successfully revoked, returning an empty result.*
 
 ---
