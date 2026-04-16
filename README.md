@@ -52,7 +52,7 @@ Navigating and resolving 'Invalid Argument' errors during the YAML-based entitle
 
 ### 3. JIT Simulation & Verification
 To maintain the security objective, I pivoted to a manual JIT simulation using the `gcloud` CLI. I successfully elevated my account to `Cloud Run Admin` and then verified the removal of access.
-![JIT](simulate%20JIT%20access.png)
+![JIT](simulate%20JIT%20acess.png)
 ![JIT](Grant%20of%20JIT%20successfull.png)
 ![JIT](Revoke%20grant%20of%20JIT.png)
 ![JIT](Grant%20successfully%20revoked.png)
